@@ -1,5 +1,4 @@
 import random
-from random import randint
 from constants import *
 from game.casting.actor import Actor 
 
@@ -8,6 +7,7 @@ class Ball(Actor):
     
     def __init__(self, body, image, debug = False):
         """Constructs a new Ball.
+
         Args:
             body: A new instance of Body.
             image: A new instance of Image.
@@ -56,17 +56,3 @@ class Ball(Actor):
         vy = -BALL_VELOCITY
         velocity = vx, vy
         self._body.set_velocity(velocity)
-
-
-# This is an idea I had, this should reflect the ball in the way
-# it should, just not sure how to get it added
-#
-#     self.velocity = [randint(4,8),randint(-8,8)]  
-#
-#     def update(self):
-#         self.x += self.velocity[0]
-#         self.y += self.velocity[1]
-#       
-#     def bounce(self):
-#         self.velocity[0] = -self.velocity[0]
-#         self.velocity[1] = randint(-8,8)
