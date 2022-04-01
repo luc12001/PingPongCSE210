@@ -1,5 +1,4 @@
 import random
-from random import randint
 from constants import *
 from game.casting.actor import Actor 
 
@@ -8,6 +7,7 @@ class Ball(Actor):
     
     def __init__(self, body, image, debug = False):
         """Constructs a new Ball.
+
         Args:
             body: A new instance of Body.
             image: A new instance of Image.
@@ -56,3 +56,5 @@ class Ball(Actor):
         vy = -BALL_VELOCITY
         velocity = vx, vy
         self._body.set_velocity(velocity)
+        self._body.set_velocity(velocity)
+

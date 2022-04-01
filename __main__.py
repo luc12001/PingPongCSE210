@@ -72,9 +72,7 @@ def main():
         paddle.set_position(position)
         cast.add_actor("paddle2", paddle)
         
-    
-    
-    
+
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
