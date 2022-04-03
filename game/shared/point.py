@@ -41,6 +41,11 @@ class Point:
         Returns: 
             boolean: True if both x and y are equal; false if otherwise.
         """
+        x_list = []
+        y_list = []
+        for i in range(-5, 6):
+            x_list.append(other.get_x() + i)
+            y_list.append(other.get_y() + i)
         return self._x == other.get_x() and self._y == other.get_y()
 
     def get_x(self):

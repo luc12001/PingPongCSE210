@@ -1,3 +1,7 @@
+from turtle import position
+from game.shared.point import Point
+from constants import *
+
 class Director:
     """A person who directs the game. 
     
@@ -52,37 +56,33 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-        
         paddle = cast.get_actors("paddle1")
         paddle2 = cast.get_actors("paddle2")
         ball = cast.get_first_actor("ball")
-        
         
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         ball.move_next(max_x, max_y)
         
+        if ball.get_position().get_y() == 5:
+            ball.wallbounce()
+            
+        if ball.get_position().get_y() == MAX_Y - 5:    
+            ball.wallbounce()
+
         for segment in paddle:
             segment.move_next(max_x, max_y)
+            if segment.get_position().equals(ball.get_position()):
+                ball.bounce()
+                print("This works")
             
-            
-            #x = segment.get_position().get_x()
-            #y = segment.get_position().get_y()
-            #if x - BALL_SIZE >= ball.get_position().get_x() and x + 10 <= ball.get_position().get_x() and y - 10 >= ball.get_position().get_y() and y + 10 <= ball.get_position().get_y():
-           #     ball.get_velocity().reverse()
-            
-                 
-                
-            
+           
         for segment in paddle2:
             segment.move_next(max_x, max_y)
+            if segment.get_position().equals(ball.get_position()):
+                ball.bounce()
+                print("This works")
             
-        
-        
-        
-            
-   
-        
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
         

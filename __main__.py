@@ -2,7 +2,6 @@ import os
 import random
 
 from game.casting.actor import Actor
-from game.casting.artifact import Artifact
 from game.casting.cast import Cast
 
 from game.directing.director import Director
@@ -12,16 +11,17 @@ from game.services.video_service import VideoService
 
 from game.shared.color import Color
 from game.shared.point import Point
+from game.casting.ball import Ball
 
 BALL_SIZE = 5
-FRAME_RATE = 40
+FRAME_RATE = 50
 MAX_X = 900
 MAX_Y = 600
 CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
 ROWS = 40
-CAPTION = "Robot Finds Kitten"
+CAPTION = "Ping Pong Game"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = 40
@@ -33,7 +33,7 @@ def main():
     cast = Cast()
     
     # create the banner
-    ball = Actor()
+    ball = Ball()
     ball.set_text("@")
     ball.set_font_size(FONT_SIZE)
     ball.set_color(WHITE)
